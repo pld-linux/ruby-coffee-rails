@@ -63,6 +63,7 @@ rm ri/cache.ri
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{ruby_ridir},%{ruby_rdocdir}}
+
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}
@@ -76,9 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.markdown
 %{ruby_vendorlibdir}/coffee
 %{ruby_vendorlibdir}/coffee-rails.rb
-#/usr/share/ruby/vendor_ruby/assets/javascripts/coffee-script.js.erb
-#/usr/share/ruby/vendor_ruby/rails/generators/coffee/assets/assets_generator.rb
-#/usr/share/ruby/vendor_ruby/rails/generators/coffee/assets/templates/javascript.js.coffee
+%{ruby_vendorlibdir}/assets/javascripts/coffee-script.js.erb
+%{ruby_vendorlibdir}/rails/generators/coffee/assets/assets_generator.rb
+%{ruby_vendorlibdir}/rails/generators/coffee/assets/templates/javascript.js.coffee
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
 
 %files rdoc
