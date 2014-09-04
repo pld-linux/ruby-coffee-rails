@@ -75,11 +75,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.markdown
-%{ruby_libdir}/coffee
-%{ruby_libdir}/coffee-rails.rb
-%{ruby_libdir}/assets/javascripts/coffee-script.js.erb
-%{ruby_libdir}/rails/generators/coffee/assets/assets_generator.rb
-%{ruby_libdir}/rails/generators/coffee/assets/templates/javascript.js.coffee
+%{ruby_rubylibdir}/coffee
+%{ruby_rubylibdir}/coffee-rails.rb
+%dir %{ruby_rubylibdir}/assets
+%dir %{ruby_rubylibdir}/assets/javascripts
+%{ruby_rubylibdir}/assets/javascripts/coffee-script.js.erb
+%dir %{ruby_rubylibdir}/rails/generators/coffee
+%dir %{ruby_rubylibdir}/rails/generators/coffee/assets
+%dir %{ruby_rubylibdir}/rails/generators/coffee/assets/templates
+%{ruby_rubylibdir}/rails/generators/coffee/assets/assets_generator.rb
+%{ruby_rubylibdir}/rails/generators/coffee/assets/templates/javascript.js.coffee
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
 
 %files rdoc
