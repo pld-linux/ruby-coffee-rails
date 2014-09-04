@@ -2,7 +2,7 @@
 Summary:	Coffee Script adapter for the Rails asset pipeline
 Name:		ruby-%{pkgname}
 Version:	3.2.2
-Release:	1
+Release:	2
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
@@ -62,9 +62,9 @@ rm ri/cache.ri
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{ruby_ridir},%{ruby_rdocdir}}
+install -d $RPM_BUILD_ROOT{%{ruby_libdir},%{ruby_specdir},%{ruby_ridir},%{ruby_rdocdir}}
 
-cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
+cp -a lib/* $RPM_BUILD_ROOT%{ruby_libdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}
 cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
@@ -75,11 +75,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.markdown
-%{ruby_vendorlibdir}/coffee
-%{ruby_vendorlibdir}/coffee-rails.rb
-%{ruby_vendorlibdir}/assets/javascripts/coffee-script.js.erb
-%{ruby_vendorlibdir}/rails/generators/coffee/assets/assets_generator.rb
-%{ruby_vendorlibdir}/rails/generators/coffee/assets/templates/javascript.js.coffee
+%{ruby_libdir}/coffee
+%{ruby_libdir}/coffee-rails.rb
+%{ruby_libdir}/assets/javascripts/coffee-script.js.erb
+%{ruby_libdir}/rails/generators/coffee/assets/assets_generator.rb
+%{ruby_libdir}/rails/generators/coffee/assets/templates/javascript.js.coffee
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
 
 %files rdoc
